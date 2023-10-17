@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <%~ include('partials/head', it); %>
+</head>
+
+<body lang="en">
+  <div class="container">
+    <%~ include('partials/navbar', it); %>
+    <%~ include('../partials/shared/lead', it); %>
+    <br>
+    <div id="game-map"></div>
+    <%~ include('partials/footer', it); %>
+  </div>
+  <%~ include('partials/before_body_close', it); %>
+</body>
+
+</html>

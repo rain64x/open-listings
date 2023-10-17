@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <%~ include('../partials/shared/head', it); %>
+</head>
+
+<body>
+  <%~ include('../partials/shared/navbar', it); %>
+  <div class="container">
+    <%~ include('../partials/shared/lead', it); %>
+    <div class="py-1 mb-2" id="sync-top-tags">
+      <%~ include('../partials/components/top-tags', it); %>
+    </div>
+    <%~ include('../partials/forms/geo_search_map', it); %>
+    <%~ include('../partials/forms/gwoogl', it); %>
+
+    <hr>
+    <h2 class="pb-2">Listings</h2>
+
+    <%~ include('./listings_parser_forker', it); %>
+
+    <%~ include('../partials/sections/add/market', it); %>
+    <%~ include('../partials/sections/add/skill', it); %>
+    <%~ include('../partials/sections/add/event', it); %>
+    <%~ include('../partials/sections/add/blog', it); %>
+    <%~ include('../partials/sections/add/hobby', it); %>
+
+    <%~ include('../partials/sections/subscribe/market', it); %>
+    <%~ include('../partials/sections/subscribe/skill', it); %>
+    <%~ include('../partials/sections/subscribe/event', it); %>
+    <%~ include('../partials/sections/subscribe/blog', it); %>
+    <%~ include('../partials/sections/subscribe/hobby', it); %>
+
+    <%~ include('../partials/conf/prepare_js', it); %>
+    <%~ include('../partials/shared/footer', it); %>
+  </div>
+  <%~ include('../partials/conf/before_body_close', it); %>
+  <script>
+    {
+      if (window.__context__ === 'alllistings') {
+        const scriptElement = document.createElement("script")
+        scriptElement.src = "/javascripts/biglists/biglists.js"
+        document.body.appendChild(scriptElement)
+      }
+    }
+  </script>
+</body>
+
+</html>
