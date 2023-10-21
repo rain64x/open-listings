@@ -82,8 +82,7 @@ Trans['geopoint'] = (someListing) => {
 
 function traceMethodCalls(obj) {
     let handler = {
-        get(target, propKey, receiver) {
-            receiver // I don't know how to deal with TS fever
+        get(target, propKey) {
             const origMethod = target[propKey]
             return (...args) => {
                 try {

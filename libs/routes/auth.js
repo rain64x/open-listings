@@ -13,6 +13,11 @@ import { absorb, to } from '../services/routines/code.js'
 // eslint-disable-next-line no-unused-vars
 import * as Types from '../../types.d.js'
 // Encapsulates routes: (Init shared variables and so)
+
+/**
+ * 
+ * @param {Types.FastifyExtended} fastify 
+ */
 async function routes(fastify) {
     const { redis } = fastify
 

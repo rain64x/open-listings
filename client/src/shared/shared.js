@@ -3,7 +3,7 @@ import { Tooltip } from 'bootstrap'
 import InApp from 'detect-inapp'
 import htmx from 'htmx.org'
 import { setupTour } from './accessibility/setupTour.js'
-import { setupAdsRotator } from './ads/setup-ads-rotator.js'
+// import { setupAdsRotator } from './ads/setup-ads-rotator.js'
 import { setupDelimitationsKeywords } from './auto-complete/setup-delimitations-keywords.js'
 import { setupUndrawKeywords } from './auto-complete/setup-undraw-keywords.js'
 import { setupInteractiveListings } from './cards/setup-interactive-listings.js'
@@ -57,7 +57,7 @@ export const setupShared = () => {
         // [setupFavorites, true],
         [setupInteractiveListings, false],
         [setupInteractiveNotifications, true],
-        [setupAdsRotator, false],
+        // [setupAdsRotator, false],
         [setupTour, false],
         [setupScrollBlink, true],
         [renderShared, true],

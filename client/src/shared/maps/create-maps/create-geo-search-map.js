@@ -53,7 +53,7 @@ export function geoSearchMap({ lat, lng, layerFactory, clusterFactory, zoom }) {
     }
     L.mask(latLngs).addTo(map)
     // 6*4 KM
-    circle = L.circle([lat, lng], 6000 * 4).addTo(map)
+    circle = L.circle([lat, lng], 16000).addTo(map) // 16km ~ 10 miles  // (same as the query in mongo: $centerSphere: [[parseFloat(longitude), parseFloat(latitude)], 10 / 3963.2])
     // let lastValid = []
     // let moveable
     // lastValid = [lat, lng]

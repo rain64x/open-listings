@@ -1,8 +1,14 @@
 import { v4 as uuidv4 } from 'uuid'
 import { NODE_ENV, config } from '../../utils.js'
 import * as Crypto from '../services/routines/crypto.js'
+// eslint-disable-next-line no-unused-vars
+import * as Types from '../../types.d.js'
 
 const key = Crypto.passwordDerivedKey(config('PASSWORD'))
+/**
+ * 
+ * @param {Types.FastifyExtended} fastify 
+ */
 async function routes(fastify) {
     // Channels is a map of { key: socket }
     // Where the key is referred as: channel

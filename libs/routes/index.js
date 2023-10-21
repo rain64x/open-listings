@@ -11,20 +11,29 @@ import blabla from '../decorators/blabla.js'
 import queries from '../services/external-apis/mongo-queries.js'
 import { EphemeralData } from '../services/helpers.js'
 import { to } from '../services/routines/code.js'
+// eslint-disable-next-line no-unused-vars
+import * as Types from '../../types.d.js'
+
 // TODO: rethink validation errors: 'request.validationError'
 
 // The function would need to be declared async for return to work.
 // Only routes accept next parameter.
+/**
+ * 
+ * @param {Types.FastifyExtended} fastify 
+ */
 async function routes(fastify) {
     /** @type { import('ioredis').Redis } redis */
+    
     const redis = fastify.redis
     const QInstance = new queries(redis, new logger(fastify).log)
     let { softAuth } = authAdapter(fastify)
 
     // Using reply.blabla instead of regular `reply.view`
     fastify.decorateReply('blabla', blabla)
-
+    
     fastify.get('/update/:id/', async function (req, reply) {
+        
         await redis.hset(`up-ids`, req.params.id, 3)
         return reply
     })

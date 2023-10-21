@@ -1,6 +1,6 @@
 # Open-listings
 
-**Open-listings is a listings' website, particularly, similar to the open-listings we see on news-papers. Let's bring the same idea to the web; This time offering rich input forms, interactive UI, an interactive Map all presented to user with multiple languages and most importantly respecting users privacy.**  
+**Open-listings is a listings' website, particularly, similar to the open-listings we see on newspapers. Let's bring the same idea to the web; This time offering rich input forms, interactive UI, and an interactive Map all presented to the user with multiple languages and most importantly respecting users' privacy.**  
 
 ### Countdown to production 
 <p align="center">
@@ -15,7 +15,7 @@
 <br>
 <br>
 
-> Open-Listings is not production ready ! There are many bugs. I've built it in a mindset like make the whole thing happen quickly !
+> Open-Listings is not production ready! There are many bugs. I've built it in a mindset like make the whole thing happen quickly!
 
 *Open-listings* as a listing web-app is unique in a way and this is why:
   - It runs very fast,
@@ -24,7 +24,7 @@
   - Geo-locations (up to thousands),
   - Open possibilities for choices of geolocation to be targeted (country, states),
   - Multiple human languages for the web-app and the posted content.  
-  - All are supported in all aspects (UI, back-end, DB, choice of deployment and configuration).
+  - All are supported in all aspects (UI, back-end, DB, choice of deployment, and configuration).
 
 
 🧰 Tech stack
@@ -39,12 +39,12 @@
 
 ## Functionalities
 
-- Navigation: view a listing, view some tag, view some region, change language, ...
-- Search: performant advanced search using text based on indexes, intelligent autocompletion based on a whole scan of DB, geo-search (by radius), front-end search.
-- Add a listing in a section, Send a comment to author.
-- Basic admin moderation of listings (approve or delete a new listing), check anonymous visitors countries by number.
+- Navigation: view a listing, view some tags, view some regions, and change language, ...
+- Search: performant advanced search using text based on indexes, intelligent autocompletion based on a whole scan of DB, geo-search (by radius), and front-end search.
+- Add a listing in a section, Send a comment to the author.
+- Basic admin moderation of listings (approve or delete a new listing), check anonymous visitors' countries by number.
 - Multi-language support on back and front end.
-- Maps integration is quite good, you need to check that by yourself !
+- Maps integration is quite good, you need to check that by yourself!
 - A pretty rich UI using dozens of lightweight JS browser libraries (all are very carefully picked !).
 
 ## User interface
@@ -58,7 +58,7 @@ Listing page             |  Homepage             |  Admin dashboard
 
 ### A must configuration
 
-`.env` files hold secret keys and configurations which you want to hide.  
+`.env` files hold secret keys and configurations that you want to hide.  
 All other configurations should live in `/config/{NODE_env}.json` file.
 
 -  Create environment files
@@ -81,10 +81,10 @@ SENDGRID_API_KEY=
 APP_NAME=OLisings-en/fr/ar/..
 DEFAULT_LANG=en-US/fr/ar/..
 IS_REDIS_CACHE=false # Consider turning to true, to use cached listings (next version)
-IS_MONGO_DB=false # Whether to use MongoDB server or just NeDB (for development purposes!) think of NeDB as Sqlite with a MongoDB API !
+IS_MONGO_DB=false # Whether to use a MongoDB server or just NeDB (for development purposes!) think of NeDB as Sqlite with a MongoDB API!
 ``` 
 
-NeDB support for development purposes is work in progress, and contribution is welcome :)
+NeDB support for development purposes is a work in progress, and contribution is welcome :)
    
 Also client keys:
 ```Shell
@@ -94,34 +94,34 @@ MAPBOX_GEO_SEARCH=
 
 ### Install and run Docker compose
 - This has been tested only on Linux
-- Make sur there are no running MongoDB and Redis instances, ports `['6379', '27017', '8090', '2019', '3000', '9000']` are free. Better to not have them installed at all on host machine
+- Make sure there are no running MongoDB and Redis instances, ports `['6379', '27017', '8090', '2019', '3000', '9000']` are free. Better to not have them installed all on the host machine
 - Just install Docker and then run `./deploy.sh`
 
 ### Install and run the web-app
 - Install Node the run `npm install` on root `./` folder and on `./client` folder
 -  Prepare databases  
    - Redis database must be up  
-   - MongoDB must be up with the following dbs and collections  
+   - MongoDB must be up with the following DBs and collections  
 `DBs: {listings_db} & Collections: {listing, words, comment, users, userstemp, visitors-default-current, visitors-default}`
-- Fulfill Google Cloud credentials (for storage) (optional for api env)
+- Fulfill Google Cloud credentials (for storage) (optional for API env)
 `./credentials/service-account.json` 
 - Change environment files accordingly
 - Verify configuration on your environments as you want here `/config`
 - Prepare some data-sets: `npm run download:assets`
 - Build the whole project: `npm run build`
 
-> The app is targeting Linux mainly, for me it runs without Docker images on Windows Server as well (with Windows installation of MongoDB/Redis). If installation didn't go as expected; Please open an issue with steps of installation so we make this smoother.
+> The app is targeting Linux mainly, for me it runs without Docker images on Windows Server as well (with Windows installation of MongoDB/Redis). If installation didn't go as expected; Please open an issue with the steps of installation so we make this smoother.
 
 ### Note
 
 The app bootstraps for some country as an example, with a simple tweak, you could bootstrap the app on another location with a different map.
-Just check `./.env` and `client/.env` for `APP_NAME`, `DEFAULT_LAT` etc.
+Just check `./.env` and `client/.env` for `APP_NAME`, `DEFAULT_LAT`, etc.
 
 With a different geoJSON data format, you might need to change encoders in both files `/data/geo/geoJSONEncoder.js` and `/client/data/geo/geoJSONEncoder.js`.
 
 ## Front-end libraries
-Open-listings UI relies heavily on third parties. The following open source solutions have these traits in common: they are bright, lightweight, well maintained and popular. they are simply the best I could find. So big thanks to their creators.      
-By this table I'm giving reference to their collaborators and to keep track on their updates.  
+Open-listings UI relies heavily on third parties. The following open-source solutions have these traits in common: they are bright, lightweight, well-maintained, and popular. they are simply the best I could find. So big thanks to their creators.      
+By this table, I'm giving reference to their collaborators and to keep track on their updates.  
 
 |lib|link|installed version|latest version|
 |-----------------------------------|-------------------------------------------------------------------|-------------|-------|
@@ -150,7 +150,7 @@ By this table I'm giving reference to their collaborators and to keep track on t
 
 ### Pull requests
 
-- Merging the same code with different indentations is hell, so it is important to keep one coding style between forks. I suggest to install [VSCode ESlint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) (Prettier also) that connects automatically with `./eslintrc.js` and `./client/./eslintrc.js`. 
+- Merging the same code with different indentations is hell, so it is important to keep one coding style between forks. I suggest installing [VSCode ESlint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) (Prettier also) that connects automatically with `./eslintrc.js` and `./client/./eslintrc.js`. 
     - "dbaeumer.vscode-eslint"
     - "esbenp.prettier-vscode"
 

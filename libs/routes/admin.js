@@ -1,6 +1,8 @@
 import { logger } from '../../utils.js'
 import authAdapter from '../decorators/auth.js'
 import queries from '../services/external-apis/mongo-queries.js'
+// eslint-disable-next-line no-unused-vars
+import * as Types from '../../types.d.js'
 
 let imgHolder = {
     markets: 'https://via.placeholder.com/512x350/bd5912/100d00.png?text=Market',
@@ -12,6 +14,10 @@ let imgHolder = {
 
 // The function would need to be declared async for return to work.
 // Only routes accept next parameter.
+/**
+ * 
+ * @param {Types.FastifyExtended} fastify 
+ */
 async function routes(fastify) {
     const { redis } = fastify
 

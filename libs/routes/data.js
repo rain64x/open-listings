@@ -1,5 +1,11 @@
 import { give } from '../services/data.js'
+// eslint-disable-next-line no-unused-vars
+import * as Types from '../../types.d.js'
 
+/**
+ * 
+ * @param {Types.FastifyExtended} fastify 
+ */
 async function routes(fastify) {
     ;[
         ['/get_tags_en', give.googleTagsEn],

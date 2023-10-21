@@ -1,7 +1,9 @@
 import { NODE_ENV } from '../../utils.js'
+// eslint-disable-next-line no-unused-vars
+import * as Types from '../../types.d.js'
 
 /**
- * @param  {import('fastify').FastifyInstance & {conf, mongo, verifyJWT, softVerifyJWT, testVerifyJWT, wsauth}} fastify
+ * @param {Types.FastifyExtended} fastify
  */
 export default function authAdapter(fastify) {
     let auth, adminAuth, softAuth

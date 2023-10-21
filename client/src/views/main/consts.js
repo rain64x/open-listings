@@ -3,7 +3,7 @@
 export const consts = {
     APIHost: {
         production: '',
-        localhost: 'http://localhost:3000',
+        localhost: 'http://localhost:3003',
     },
     // { "TRACE": 0, "DEBUG": 1, "INFO": 2, "WARN": 3, "ERROR": 4, "SILENT": 5};
     logLevel: {

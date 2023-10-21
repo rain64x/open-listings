@@ -65,7 +65,8 @@ export function moveableMarker(map, marker, coordinates) {
             }
             lastValid = [center.lat, center.lng]
         } else {
-            marker.setLatLng(lastValid)
+            if(lastValid.length)
+                marker.setLatLng(lastValid)
         }
     })
 

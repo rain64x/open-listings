@@ -9,7 +9,7 @@
  * @typedef {import('fastify').HookHandlerDoneFunction} Done
  * @typedef {import('fastify').FastifyInstance} Fastify
  *
- * @typedef {import('fastify').FastifyInstance & {conf?, mongo?, verifyJWT?, softVerifyJWT?, testVerifyJWT?, wsauth?}} FastifyExtended
+ * @typedef {import('fastify').FastifyInstance & { auth?, conf?, happened?, mongo?, redis?, softVerifyJWT?, testVerifyJWT?, verifyJWT?, wsauth?}} FastifyExtended
  * @typedef {{p: number}} Query
  * @typedef {{locale: string}} Locale
  * @typedef {{unique_tab_id: string}} Tab

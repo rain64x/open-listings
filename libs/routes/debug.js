@@ -1,7 +1,13 @@
 import perPage from '../../config/options/perPage.js'
 import { logger } from '../../utils.js'
 import queries from '../services/external-apis/mongo-queries.js'
+// eslint-disable-next-line no-unused-vars
+import * as Types from '../../types.d.js'
 
+/**
+ * 
+ * @param {Types.FastifyExtended} fastify 
+ */
 async function routes(fastify) {
     const { redis } = fastify
     const QInstance = new queries(redis, new logger(fastify).log)

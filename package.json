@@ -96,7 +96,8 @@
     "showdown": "^2.1.0",
     "toad-scheduler": "^3.0.0",
     "typesense": "^1.7.1",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "yaml": "^2.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",

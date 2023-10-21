@@ -101,8 +101,8 @@ function localize(data, route, kind, req, reply) {
     // It does not work when session is not yet created! (It works only for logged in users)
     const getOneFlash = (key) => (reply.flash(key) && reply.flash(key).length ? reply.flash(key)[0] : [])
     try {
-        userFriendlyMsg['success'] = userFriendlyMsg['success'] || getOneFlash('success')
-        userFriendlyMsg['error'] = userFriendlyMsg['error'] || getOneFlash('error')
+        userFriendlyMsg['success'] = userFriendlyMsg['success'] ? [userFriendlyMsg['success']] : getOneFlash('success')
+        userFriendlyMsg['error'] = userFriendlyMsg['error'] ? [userFriendlyMsg['error']] : getOneFlash('error')
     } catch (error) {
         req.log.error(`blabla/localize/flash: ${error.message}`)
     }
@@ -125,9 +125,11 @@ function localize(data, route, kind, req, reply) {
     //     d) `error` generated in `common.json` namespace
     // back in `userFriendlyMsg.error`
     data.errors = [data.errors].flat().filter(Boolean)
-    if (userFriendlyMsg.error || data.errors.length || warnings.length) {
-        userFriendlyMsg.error = [...warnings, ...data.errors, userFriendlyMsg.error].filter(Boolean)
+
+    if (userFriendlyMsg?.error?.length || data.errors.length || warnings.length) {
+        userFriendlyMsg.error = [...warnings, ...data.errors, ...userFriendlyMsg.error].filter(Boolean)
     } else userFriendlyMsg.error = []
+
     // TODO: Add suggestions to toasty on UI
     userFriendlyMsg.suggestions = suggestions.filter(Boolean)
     userFriendlyMsg['meta'] = userFriendlyMsg['intro'] ? userFriendlyMsg['intro'] : ''
