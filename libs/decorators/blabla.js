@@ -99,7 +99,13 @@ function localize(data, route, kind, req, reply) {
     // The following gets back flashed success or failure messages
     // added in the current request lifecycle (here for ex in `pipeline#listingValidation`)
     // It does not work when session is not yet created! (It works only for logged in users)
-    const getOneFlash = (key) => (reply.flash(key) && reply.flash(key).length ? reply.flash(key)[0] : [])
+    const getOneFlash = (key) => {
+        try {
+            reply.flash(key) && reply.flash(key).length ? reply.flash(key)[0] : []
+        } catch (error) {
+            // in case session does not exist. Find a way to add error without 'flash' 
+        }
+    }
     try {
         userFriendlyMsg['success'] = userFriendlyMsg['success'] ? [userFriendlyMsg['success']] : getOneFlash('success')
         userFriendlyMsg['error'] = userFriendlyMsg['error'] ? [userFriendlyMsg['error']] : getOneFlash('error')

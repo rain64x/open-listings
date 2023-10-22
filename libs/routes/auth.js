@@ -55,6 +55,7 @@ async function routes(fastify) {
      */
     const kickOut = (request, reply) => {
         reply.setCookie(COOKIE_NAME, {})
+        request.flash('success', 'Successfully logged out')
         request.session?.destroy()
         delete request.params.username
         delete request.params.proof
@@ -63,7 +64,6 @@ async function routes(fastify) {
     /* GET logout. */
     fastify.get('/logout', (request, reply) => {
         kickOut(request, reply)
-        request.flash('success', 'Successfully logged out')
         reply.redirect('/')
     })
 
@@ -96,12 +96,16 @@ async function routes(fastify) {
             } else {
                 const token = jwt.sign({ username: username, role: user.role }, fastify.conf('JWT_SECRET'))
                 reply.setCookie(COOKIE_NAME, token)
-                // this.user = username
+                request.flash('success', 'Successfully logged in')
+
                 if (request.headers.referer) {
+                    if(request.headers.referer.includes('/login')) {
+                        reply.redirect('/')
+                        return reply
+                    }
                     reply.redirect(request.headers.referer)
                     return reply
                 } else {
-                    request.flash('success', 'Successfully logged in')
                     reply.redirect('/')
                     return reply
                 }
